@@ -1,0 +1,28 @@
+{
+  "http_smoke": {
+    "result": "passed",
+    "pages_checked": 6,
+    "transport": "Next.js same-origin proxy \u2192 FastAPI \u2192 PostgreSQL",
+    "data_kind": "synthetic QA actions in isolated schema, not human engagement",
+    "checks": [
+      "HttpOnly session",
+      "profile persistence",
+      "catalog search",
+      "popularity fallback",
+      "live item-CF",
+      "rated-item exclusion",
+      "impression deduplication",
+      "rating replay",
+      "click attribution",
+      "artifact-backed metrics"
+    ]
+  },
+  "metrics_authorization": "passed",
+  "standalone_frontend": "passed",
+  "startup_pin_and_restart": "passed",
+  "restart_rollback": "passed",
+  "initial_release": "b282ac9801670d024ce7db791d776ac199b95b0cf10c006d92781cfa326ad011",
+  "second_release": "814c67246ca4c5a99f110a771f767752083cb4cb4cde9fe52dea42056c18461a",
+  "restored_release": "b282ac9801670d024ce7db791d776ac199b95b0cf10c006d92781cfa326ad011",
+  "scope": "Local processes, real PostgreSQL, disposable schema; not Docker execution."
+}

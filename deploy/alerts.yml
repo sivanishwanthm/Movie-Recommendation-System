@@ -1,0 +1,24 @@
+groups:
+  - name: recsyslab
+    rules:
+      - alert: RecSysAPIDown
+        expr: up{job="recsyslab-api"} == 0
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: API metrics cannot be scraped; check process, database, and token configuration.
+      - alert: RecSysHighErrorRate
+        expr: sum(rate(recsys_http_requests_total{status=~"5..",route!="/api/metrics"}[5m])) / clamp_min(sum(rate(recsys_http_requests_total{route!="/api/metrics"}[5m])), 0.001) > 0.05 and sum(increase(recsys_http_requests_total{route!="/api/metrics"}[5m])) >= 20
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: More than 5 percent server errors with at least 20 requests in five minutes.
+      - alert: RecSysSlowRecommendations
+        expr: histogram_quantile(0.95, sum by (le) (rate(recsys_http_request_duration_seconds_bucket{route="/api/recommendations"}[5m]))) > 0.5 and sum(increase(recsys_http_requests_total{route="/api/recommendations"}[5m])) >= 20
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: Recommendation API p95 exceeds 500 milliseconds.

@@ -1,0 +1,31 @@
+{
+  "source": "actual_existing_movielens_benchmarks",
+  "initial_release": "b282ac9801670d024ce7db791d776ac199b95b0cf10c006d92781cfa326ad011",
+  "second_release": "814c67246ca4c5a99f110a771f767752083cb4cb4cde9fe52dea42056c18461a",
+  "restored_release": "b282ac9801670d024ce7db791d776ac199b95b0cf10c006d92781cfa326ad011",
+  "rollback_passed": true,
+  "note": "The two repeated benchmark runs have identical model fingerprints; bundles differ in timing/provenance. Unit tests additionally exercise different model weights.",
+  "model_version": "item-cf-5e25ab883c84f961",
+  "gate": {
+    "checks": {
+      "validation_selected_item_cf": true,
+      "same_nonempty_cohort": true,
+      "ndcg_at_least_popularity": true,
+      "catalog_coverage_at_least_1_percent": true,
+      "in_process_p95_below_50ms": true
+    },
+    "validation_ndcg": 0.2687715603873211,
+    "baseline_ndcg": 0.260402544966431,
+    "coverage": 0.04451119606772255,
+    "in_process_p95_ms": 0.8294497000000511,
+    "scope": "Offline validation only; not a significance test or online promotion decision."
+  },
+  "mlflow": {
+    "run_id": "3d1751d0a8f54936a62dce25935cb42a",
+    "registered_model": "recsyslab-item-cf",
+    "version": 1,
+    "alias": "validated",
+    "release": "b282ac9801670d024ce7db791d776ac199b95b0cf10c006d92781cfa326ad011",
+    "tracking_uri": "sqlite:///artifacts/phase6/mlflow.db"
+  }
+}

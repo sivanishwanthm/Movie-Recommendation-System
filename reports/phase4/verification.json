@@ -1,0 +1,33 @@
+{
+  "phase": 4,
+  "python_tests_passed": 34,
+  "python_tests_skipped": 0,
+  "production_build": "passed",
+  "typescript": "passed",
+  "http_smoke": "passed",
+  "browser_visual_qa": "not performed: Computer Use permission unavailable",
+  "qa_data": "synthetic isolated test schema, not real engagement",
+  "source_sha256": {
+    "frontend/app/activity/page.tsx": "d1f1941698248d42e2df22ddff80b5281891f98b6581e8c75f9a8c392e7f2e55",
+    "frontend/app/explore/page.tsx": "a2b4e869f73955bdf3374bc7341f54564c665e0551cd566fde96758ca5bad812",
+    "frontend/app/globals.css": "2a5295aecc2ce261a74015bfa64eb612178817159105f49462905c01952c230e",
+    "frontend/app/layout.tsx": "36d3fabf580d247f2593049750a601e5855d96f7d14149794c8cf95359459a23",
+    "frontend/app/models/page.tsx": "4a95bee6dd4448e12108af0cd5c31a46d14cba969839f016d7d5372667105390",
+    "frontend/app/movies/[id]/page.tsx": "3a92200b2f9b718a0eed1063a5feac42a45b6e3354ab78fa8e05eddf4cf0cb3e",
+    "frontend/app/page.tsx": "99a6b755a47ec1e9272ec0543b84af9ec65602d570b339ae5e675cca66b72b90",
+    "frontend/app/profile/page.tsx": "11b507aaf14ede3a748489827a2c93f5d1f356f9ffff1d548b8e928c6627fbff",
+    "frontend/components/Detail.tsx": "5be7de70473a3f3c50b1d0d7b64258edf35c3567271bd8871f39fe10f3c19f1a",
+    "frontend/components/MovieCard.tsx": "b848c4263f43974d0eee19b5c82cb1c3e479695ceb827b8c1fc4bf868b6da817",
+    "frontend/components/Nav.tsx": "f76226f5e029b432b3ba9ce4ab9007aae48df67db2efba2d163c477f3d103dcf",
+    "frontend/components/ProfileForm.tsx": "7d2235a017aa0f471436875b3bbd7af1a5efbdb5ef13847634fd03e112d69dbc",
+    "frontend/lib/api.ts": "0eecb4d7a74c3a15c1620272313220da169b33d108aa71a7441c83446391f488",
+    "frontend/package-lock.json": "e01874a90c47e1989933caa9b7e778690b735606a732b939786b260193d29642",
+    "requirements-phase4-lock.txt": "6df09561eca8b3066ca0a89ef90eabb901d123d51adad577ac160652bf34a29d",
+    "src/recsyslab/serving/__init__.py": "51cbd5271d5d4ac97791e3502dad6d35096e18ddf25ee0a3767689a2ab9c31a1",
+    "src/recsyslab/serving/app.py": "adfd60f166d5caad40288a54a466b44548f3af5fca694ea0a5b2b0970b1d8c9d",
+    "src/recsyslab/serving/catalog.py": "6ce22d0938fcee72530314193ca13fb5df8bf4e07a3b1bdc46e64c5405ad9220",
+    "src/recsyslab/serving/database.py": "0e0f540164b5d81960ca32d071327d6b372102614b2a1a1dccdb96c732e4c34b",
+    "src/recsyslab/serving/model.py": "346fb011973137757a0bbe02761e0757aaa54b803845ed3b67bdbeba28cb71d7",
+    "tests/test_serving.py": "ecbcaa5c1e3a84147f92aab341bd65bfb50289308a1c089ab3b7cdcdf5935a3a"
+  }
+}

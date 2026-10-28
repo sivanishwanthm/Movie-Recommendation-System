@@ -1,0 +1,18 @@
+'use client';
+import {useCallback,useEffect,useState} from 'react';
+import Link from 'next/link';
+import {api,ApiError,message,Profile,Recommendation} from '../lib/api';
+import ProfileForm from '../components/ProfileForm';
+import MovieCard from '../components/MovieCard';
+export default function Home(){
+ const [profile,setProfile]=useState<Profile|null>(null);const [ready,setReady]=useState(false);const [data,setData]=useState<Recommendation|null>(null);const [busy,setBusy]=useState(false);const [error,setError]=useState('');
+ const recommend=useCallback(async()=>{setBusy(true);setError('');try{setData(await api<Recommendation>('/recommendations',{method:'POST',body:JSON.stringify({k:12})}));}catch(err){setError(message(err));}finally{setBusy(false);}},[]);
+ const initialize=useCallback(async()=>{setError('');try{const p=await api<Profile>('/me');setProfile(p);await recommend();}catch(err){if(!(err instanceof ApiError&&err.status===401))setError(message(err));}finally{setReady(true);}},[recommend]);
+ useEffect(()=>{void initialize();},[initialize]);
+ return <><section className="hero"><div><span className="eyebrow">LESS SCROLLING. MORE GOOD MOVIES.</span><h1>Your next favorite<br/>starts here<span className="accent">.</span></h1><p>Discover films through shared taste.<br/>Rate what you know. Find something you don’t.</p><Link className="text-link" href="/explore">Explore the collection <span>↗</span></Link></div><div className="hero-art" aria-hidden="true"><div className="ticket ticket-back">A DIFFERENT<br/>POINT OF VIEW.</div><div className="ticket ticket-front"><span>ADMIT ONE</span><div className="reel">✳</div><strong>YOUR NEXT<br/>GREAT WATCH</strong><span>SELECTED BY SHARED TASTE</span></div></div></section>
+ {!ready&&<p role="status" className="panel">Loading your profile…</p>}
+ {ready&&!profile&&!error&&<ProfileForm onCreated={p=>{setProfile(p);void recommend();}}/>}
+ {error&&<div role="alert" className="error panel">{error} <button className="secondary" onClick={()=>void initialize()}>Retry</button></div>}
+ {profile&&<section className="section"><div className="section-heading"><div><span className="eyebrow">CURATED FOR {profile.name.toUpperCase()}</span><h2>{data?.strategy==='item_cf_live_profile'?'A little more your kind of movie.':'Start with the crowd favorites.'}</h2></div><button className="secondary" onClick={()=>void recommend()} disabled={busy}>{busy?'Finding movies…':'Refresh picks ↻'}</button></div>{data&&<><div className="context-strip"><span className="pill">{data.strategy==='item_cf_live_profile'?'Personalized · item CF':'Popularity · getting to know you'}</span><span>{data.positive_count} positive ratings · <Link href="/explore">Rate more movies →</Link></span></div><div className="movie-grid">{data.items.map((movie,i)=><MovieCard key={`${data.batch_id}-${movie.id}`} movie={movie} index={i} batch={data.batch_id}/>)}</div>{!data.items.length&&<p className="panel">You’ve rated every available recommendation. Explore the collection or update your ratings.</p>}</>}</section>}
+ <section className="principles"><div><span>01 / DISCOVER</span><h3>More than a popularity list.</h3><p>Start with well-liked films, then discover connections through the movies you rate.</p></div><div><span>02 / UNDERSTAND</span><h3>See what powers your picks.</h3><p>Explore measured model results and the tradeoffs behind recommendation quality.</p><Link href="/models">View the benchmarks ↗</Link></div><div><span>03 / MAKE IT YOURS</span><h3>Your taste, your profile.</h3><p>Only ratings you enter here shape your live profile. Your activity stays separate from the historical dataset.</p></div></section></>
+}

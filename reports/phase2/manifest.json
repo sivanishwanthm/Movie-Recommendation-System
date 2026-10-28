@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "config": {
+    "dataset": "1m",
+    "train_fraction": 0.8,
+    "validation_fraction": 0.1,
+    "positive_threshold": 4.0,
+    "k": 10,
+    "seed": 42,
+    "bootstrap_samples": 1000,
+    "min_positives": 3,
+    "item_cf": {
+      "neighbors": 100,
+      "shrinkage": 10.0
+    },
+    "implicit_als": {
+      "factors": 32,
+      "iterations": 12,
+      "alpha": 20.0,
+      "regularization": 0.1
+    }
+  },
+  "cutoffs": {
+    "validation_start": 975768738,
+    "test_start": 978133414
+  },
+  "rows": {
+    "train": 800164,
+    "validation": 100024,
+    "test": 100021
+  },
+  "fit_seconds": {
+    "popularity": 0.00636666599999991,
+    "item_cf": 0.6354179579999999,
+    "implicit_als": 1.754095333
+  },
+  "artifact_bytes": {
+    "popularity": 90604,
+    "item_cf": 3539367,
+    "implicit_als": 2977798
+  },
+  "selected_on_validation": "item_cf",
+  "total_seconds": 9.059795333,
+  "runtime": {
+    "python": "3.9.6",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scipy": "1.13.1"
+  },
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "source_sha256": {
+    "README": "2d5ddce86ccbd247207456165827b4b9ddf27282bca93807d4c763e28414f133",
+    "movies.dat": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9",
+    "ratings.dat": "506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f",
+    "users.dat": "1dc3a95300cb19f7c10e027daf29b8cdf1d908dab65b5edfb45950aa389a10a3"
+  },
+  "code_sha256": {
+    "__init__.py": "5e276b787a0b121772678421fb9d98dd130337c6aae09a398a3a2ee372e87154",
+    "benchmark.py": "a8dfbef7bc953c8406aba708b1d105b2927e958550a95f109b765b3167ddf344",
+    "classical.py": "392d2549439e777df8ad9ed44930a1766b521e2f3d0eff4288e372762cd768bf",
+    "data.py": "7133775539c9e7249916f1648237ed814e36218c18f2d8ac809ff9c134a9d566",
+    "eda.py": "dd83b3409bab00adf365c69575acbc578c270a1d951270195f02704c38126a0e",
+    "evaluation.py": "5a9ca84f9deea67d7e048a3ffa2c3abeea8813dd441e090f241042bd572bb732",
+    "models.py": "13cce0e560b4b0e2b3a3e7b2881e240df3581a96aeec6b04120c360944ea3a79",
+    "pipeline.py": "8cfba7632a7a275466b031d127fcc7a8d715519e0bfb69486e87693197190b28"
+  },
+  "artifact_sha256": {
+    "implicit_als/arrays.npz": "12c9ca56731dcec43dd85b2b94f36c77957508ca30250508ae49f55b08ba15ff",
+    "implicit_als/model.json": "c2265ca51c17b31ff4598c1b5ecdb376acff7c19e4b514c0cbb2642e5c67bf6a",
+    "implicit_als/profiles.npz": "2ebbaf369c4ce942c8031ffc42d3d0f250a2af5adf869777bb7b93503e7c79bf",
+    "item_cf/arrays.npz": "fdf2de51b6cb4a863171a5a5585caf9344d754862d6253177c7752d2a91f9a63",
+    "item_cf/model.json": "b5105092bfa1eb5008105f60b268bfd7242c4a8beed7ef48fec01f897f534033",
+    "item_cf/profiles.npz": "2ebbaf369c4ce942c8031ffc42d3d0f250a2af5adf869777bb7b93503e7c79bf",
+    "item_cf/similarity.npz": "8c6d4c9ac152f8ea3849c94633be3326b623050e6e049f28fdf2448f0b31c718",
+    "metrics.json": "8d044f1e77036d7df5c2edf2430ee6dc4271df8621c6f527de9584be9a84af44",
+    "paired_comparisons.json": "e46e3679c3159e6c62bfdf55885afdda5aa8b9c995910092387e80e86d05f8f5",
+    "popularity.json": "8a23b4d6dacbf97d626f5697f0ed55ae8712ea700510afc65a47b715bad6dd93",
+    "selection.json": "339283b43ac69a125d4976dd5bc49e3de49bb29a992700a1c06e63acd6b21650",
+    "test_implicit_als_per_user.csv": "279a529f3cccbb6d6df514132961dde4f3a8de47a47d3b64e31b23343f8ecdb9",
+    "test_item_cf_per_user.csv": "252629b9235f7e52dec62db277335a61398a7bc0eef7ee83494d3ca8253e2824",
+    "test_popularity_per_user.csv": "b5095d5b9092f3d98d0df258daf0329eaa3e87f9d252fe584df5a33135082d23",
+    "validation_implicit_als_per_user.csv": "16a985efe6958738f12ee48ec2698dc71a343421cfd868fce83dbbede1442ac1",
+    "validation_item_cf_per_user.csv": "a882a51f2342cbe1a21d1774b2f1d885acc3c63e72382655ba00a4d8f8360248",
+    "validation_popularity_per_user.csv": "233649e57dc057fdcf5b4968b2e2edfbe6f4f961cec51a65a225057cf716bf29"
+  },
+  "protocol": "Frozen train-only profiles and weights; full train catalog; validation/test seen filters identical across models."
+}

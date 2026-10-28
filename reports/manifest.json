@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "config": {
+    "dataset": "1m",
+    "train_fraction": 0.8,
+    "validation_fraction": 0.1,
+    "positive_threshold": 4.0,
+    "k": 10,
+    "seed": 42,
+    "bootstrap_samples": 1000
+  },
+  "cutoffs": {
+    "validation_start": 975768738,
+    "test_start": 978133414
+  },
+  "rows": {
+    "train": 800164,
+    "validation": 100024,
+    "test": 100021
+  },
+  "demographic_users": 6040,
+  "source_sha256": {
+    "README": "2d5ddce86ccbd247207456165827b4b9ddf27282bca93807d4c763e28414f133",
+    "movies.dat": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9",
+    "ratings.dat": "506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f",
+    "users.dat": "1dc3a95300cb19f7c10e027daf29b8cdf1d908dab65b5edfb45950aa389a10a3"
+  },
+  "runtime": {
+    "python": "3.9.6",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3"
+  },
+  "protocol": "Global temporal split; frozen train model; test excludes train+validation history; full train catalog.",
+  "artifact_sha256": "68d98c617ace12da7aa4d2ab72a04788af4ae0d2e220e8545d8c7571a275747d"
+}

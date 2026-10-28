@@ -1,0 +1,38 @@
+{
+  "python": "3.9.6",
+  "tests": {
+    "passed": 53,
+    "warnings": 14,
+    "skipped": 0
+  },
+  "frontend_build": "passed",
+  "typescript": "passed",
+  "pip_check": "passed",
+  "yaml_parse": "passed",
+  "docker_execution": "not_available",
+  "hosted_ci": "not_run",
+  "public_deployment": false,
+  "source_sha256": {
+    ".github/workflows/ci.yml": "50d172f3b739654dc8395c356e8d074c83849f1711dd06eca24ad315384a3c74",
+    "compose.yaml": "54a5a6ae4de73c0d1fb66d6cfb9a835e6073dfffc2677fa6c1d3e7e80e2949df",
+    "deploy/Dockerfile.api": "803c5efa750b01c7062cfe901e053b7703ca9f5e08bea8c89a1259a90ffcc6b2",
+    "deploy/Dockerfile.web": "9f444f4fc4597add5045440308d06088b7bec17f2a98b9f5e6d8effcee6de58c",
+    "deploy/alerts.yml": "6faa98343eaf5193ff2b7e22a342ed8038e54f7084f65cdfc246e861cb353a42",
+    "deploy/prometheus.yml": "a9060bbac2f487b032f691c181dc38336ce64ac456fac73654a63115ae7b1df0",
+    "frontend/next.config.ts": "ce7e27ee064568c9d405da7ce2f20fd0c00abd8b94d71b4fbefb74022cbd2629",
+    "pyproject.toml": "9b1102b578a719e478d14af213180c266a044d08bb55535f2bb47cd8d9b3d756",
+    "requirements-phase6-lock.txt": "94701b36d3a7991002e31db9a61e40f6804fa5ee0c0a09dd3cba90e084f427ba",
+    "requirements-serving-lock.txt": "94792d98c409f25672a04d4d1063556625c2a3e835314b48d70e14e4627c3d9a",
+    "scripts/bootstrap_release.py": "8b91f25be9764f85eda0e294c3c2ce85eac2df449c152ce8c0d63c139958cc61",
+    "scripts/init_compose.py": "401ce772a42ed2f2fc08c089386d7a6b801ddaead10455ce750b6d151c882981",
+    "scripts/run_phase4.py": "4d506bcafcfc776b0bf721cb02358bf1cb9b2fd1eafae5023cbf882b7fbc797b",
+    "scripts/track_selected_release.py": "52a3cc585c45d2bb201357f1e38b0ce7acd37f199c32524b083d8f0ff3a167b8",
+    "scripts/verify_phase6_local.py": "3c1cd40cbfea9a792d33345b84890278a68b4d695ded175c9645e491099f4b3a",
+    "src/recsyslab/operations/__init__.py": "119a515be08999c32fe8024a3812edebe4ab3af8c79179c425b850570b8930f5",
+    "src/recsyslab/operations/drift.py": "3b5e1f2e902e0427294c7c31b9a5922c21447d808150efdef8b74f9ebddbdee5",
+    "src/recsyslab/operations/monitoring.py": "5d23b179cd831b3d35cc62b29ccb18d1ba0cb105ea5a665d8104d993ec4d9685",
+    "src/recsyslab/operations/releases.py": "81c41823f9b3311279cc454af799dd0de098f4a8b7f2797e32fe9594b6501ea7",
+    "src/recsyslab/serving/app.py": "9f7eee09b2e5ea15f76ae8c06a92532a1392e343d36b8fcde9f173a55efbc362",
+    "tests/test_operations.py": "4cc497cd21da5bc41136595f3e95693bd3cab88929e8a0fa813c2e8c03cfbdc0"
+  }
+}

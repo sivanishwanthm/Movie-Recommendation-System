@@ -1,0 +1,546 @@
+{
+  "validation": {
+    "popularity": {
+      "metrics": {
+        "recall": {
+          "mean": 0.06073490725413098,
+          "ci95": [
+            0.05543827428677499,
+            0.06673384052761096
+          ]
+        },
+        "precision": {
+          "mean": 0.24097914777878515,
+          "ci95": [
+            0.2257388939256573,
+            0.25512692656391656
+          ]
+        },
+        "ndcg": {
+          "mean": 0.260402544966431,
+          "ci95": [
+            0.24433248509198807,
+            0.27587625966015555
+          ]
+        },
+        "hit_rate": {
+          "mean": 0.6627379873073436,
+          "ci95": [
+            0.6346328195829556,
+            0.6908431550317317
+          ]
+        },
+        "diversity": {
+          "mean": 0.7812317537068215,
+          "ci95": [
+            0.7791930761223598,
+            0.783244749168933
+          ]
+        },
+        "popularity_bias": {
+          "mean": 1818.724750679964,
+          "ci95": [
+            1804.7920330915688,
+            1832.2874909338168
+          ]
+        },
+        "novelty_bits": {
+          "mean": 8.028917681534109,
+          "ci95": [
+            8.016200393127896,
+            8.043358758278094
+          ]
+        }
+      },
+      "users_evaluated": 1103,
+      "target_users": 1134,
+      "users_without_positive": 31,
+      "users_excluded_seen_only": 0,
+      "cold_start_users": 611,
+      "unreachable_positive_fraction": 8.648723448419014e-05,
+      "catalog_coverage": 0.03304205352266521,
+      "latency_ms_p50": 0.0007920000006933492,
+      "latency_ms_p95": 0.003958000000547912,
+      "recommendations_per_second": 712240.5939716103,
+      "timing_scope": "in-process recommendation only, sequential, no network or API",
+      "cohorts": {
+        "warm": {
+          "users": 489,
+          "metrics": {
+            "recall": 0.047571364088423496,
+            "precision": 0.11104294478527607,
+            "ndcg": 0.12342196629367559,
+            "hit_rate": 0.4171779141104294,
+            "diversity": 0.7821708269765528,
+            "popularity_bias": 1639.8539877300616,
+            "novelty_bits": 8.189373109409777
+          }
+        },
+        "fallback_eligible": {
+          "users": 614,
+          "metrics": {
+            "recall": 0.07121857599685241,
+            "precision": 0.34446254071661236,
+            "ndcg": 0.3694961980136256,
+            "hit_rate": 0.8583061889250815,
+            "diversity": 0.7804838598486804,
+            "popularity_bias": 1961.1804560260591,
+            "novelty_bits": 7.90112826096212
+          }
+        }
+      }
+    },
+    "item_cf": {
+      "metrics": {
+        "recall": {
+          "mean": 0.06557783430461346,
+          "ci95": [
+            0.05957723963397935,
+            0.07193144880430338
+          ]
+        },
+        "precision": {
+          "mean": 0.2475974614687217,
+          "ci95": [
+            0.2317316409791478,
+            0.2622846781504986
+          ]
+        },
+        "ndcg": {
+          "mean": 0.2687715603873211,
+          "ci95": [
+            0.2522485255813601,
+            0.28419345142522223
+          ]
+        },
+        "hit_rate": {
+          "mean": 0.6645512239347234,
+          "ci95": [
+            0.6382592928377153,
+            0.6908431550317317
+          ]
+        },
+        "diversity": {
+          "mean": 0.7867457199460823,
+          "ci95": [
+            0.7844029546642873,
+            0.7893680390661351
+          ]
+        },
+        "popularity_bias": {
+          "mean": 1723.7380779691753,
+          "ci95": [
+            1705.9574909338169,
+            1742.28374206709
+          ]
+        },
+        "novelty_bits": {
+          "mean": 8.13406817862969,
+          "ci95": [
+            8.116406892094414,
+            8.1533073852975
+          ]
+        }
+      },
+      "users_evaluated": 1103,
+      "target_users": 1134,
+      "users_without_positive": 31,
+      "users_excluded_seen_only": 0,
+      "cold_start_users": 611,
+      "unreachable_positive_fraction": 8.648723448419014e-05,
+      "catalog_coverage": 0.04451119606772255,
+      "latency_ms_p50": 0.0009170000003777545,
+      "latency_ms_p95": 0.8294497000000511,
+      "recommendations_per_second": 2829.98439744674,
+      "timing_scope": "in-process recommendation only, sequential, no network or API",
+      "cohorts": {
+        "warm": {
+          "users": 489,
+          "metrics": {
+            "recall": 0.05849518522683286,
+            "precision": 0.1259713701431493,
+            "ndcg": 0.14229931600582632,
+            "hit_rate": 0.4212678936605317,
+            "diversity": 0.794608260027483,
+            "popularity_bias": 1425.5997955010225,
+            "novelty_bits": 8.426553065026193
+          }
+        },
+        "fallback_eligible": {
+          "users": 614,
+          "metrics": {
+            "recall": 0.07121857599685241,
+            "precision": 0.34446254071661236,
+            "ndcg": 0.3694961980136256,
+            "hit_rate": 0.8583061889250815,
+            "diversity": 0.7804838598486804,
+            "popularity_bias": 1961.1804560260591,
+            "novelty_bits": 7.90112826096212
+          }
+        }
+      }
+    },
+    "implicit_als": {
+      "metrics": {
+        "recall": {
+          "mean": 0.06854838441781065,
+          "ci95": [
+            0.06132147760542396,
+            0.07681890090088125
+          ]
+        },
+        "precision": {
+          "mean": 0.2313689936536718,
+          "ci95": [
+            0.21704215775158658,
+            0.24569582955575703
+          ]
+        },
+        "ndcg": {
+          "mean": 0.2534764381456914,
+          "ci95": [
+            0.23776550672295235,
+            0.26779216524864324
+          ]
+        },
+        "hit_rate": {
+          "mean": 0.6609247506799637,
+          "ci95": [
+            0.6319129646418857,
+            0.6908431550317317
+          ]
+        },
+        "diversity": {
+          "mean": 0.7616071208712488,
+          "ci95": [
+            0.7567798054768059,
+            0.7664248444198201
+          ]
+        },
+        "popularity_bias": {
+          "mean": 1415.2781504986403,
+          "ci95": [
+            1375.7165367180417,
+            1454.4588191296464
+          ]
+        },
+        "novelty_bits": {
+          "mean": 8.710770551162582,
+          "ci95": [
+            8.652430415936427,
+            8.77141393054365
+          ]
+        }
+      },
+      "users_evaluated": 1103,
+      "target_users": 1134,
+      "users_without_positive": 31,
+      "users_excluded_seen_only": 0,
+      "cold_start_users": 611,
+      "unreachable_positive_fraction": 8.648723448419014e-05,
+      "catalog_coverage": 0.258601856908793,
+      "latency_ms_p50": 0.0009170000003777545,
+      "latency_ms_p95": 0.8310295000005574,
+      "recommendations_per_second": 2791.1989826776653,
+      "timing_scope": "in-process recommendation only, sequential, no network or API",
+      "cohorts": {
+        "warm": {
+          "users": 489,
+          "metrics": {
+            "recall": 0.0651956285291979,
+            "precision": 0.08936605316973416,
+            "ndcg": 0.1077992754485307,
+            "hit_rate": 0.4130879345603272,
+            "diversity": 0.7379050396194227,
+            "popularity_bias": 729.8302658486707,
+            "novelty_bits": 9.727376616976665
+          }
+        },
+        "fallback_eligible": {
+          "users": 614,
+          "metrics": {
+            "recall": 0.07121857599685241,
+            "precision": 0.34446254071661236,
+            "ndcg": 0.3694961980136256,
+            "hit_rate": 0.8583061889250815,
+            "diversity": 0.7804838598486804,
+            "popularity_bias": 1961.1804560260591,
+            "novelty_bits": 7.90112826096212
+          }
+        }
+      }
+    }
+  },
+  "test": {
+    "popularity": {
+      "metrics": {
+        "recall": {
+          "mean": 0.05653017318331847,
+          "ci95": [
+            0.051743168396764024,
+            0.06198917582394245
+          ]
+        },
+        "precision": {
+          "mean": 0.2000841750841751,
+          "ci95": [
+            0.18711700336700338,
+            0.21338804713804713
+          ]
+        },
+        "ndcg": {
+          "mean": 0.21750316024355912,
+          "ci95": [
+            0.20378720252051316,
+            0.23191603386640877
+          ]
+        },
+        "hit_rate": {
+          "mean": 0.6388888888888888,
+          "ci95": [
+            0.6119528619528619,
+            0.6641414141414141
+          ]
+        },
+        "diversity": {
+          "mean": 0.7834989890082482,
+          "ci95": [
+            0.780621321237062,
+            0.7862825037188462
+          ]
+        },
+        "popularity_bias": {
+          "mean": 1673.7002525252524,
+          "ci95": [
+            1658.5936784511784,
+            1689.0013278619529
+          ]
+        },
+        "novelty_bits": {
+          "mean": 8.15830837763302,
+          "ci95": [
+            8.142087612038903,
+            8.173984135034209
+          ]
+        }
+      },
+      "users_evaluated": 1188,
+      "target_users": 1209,
+      "users_without_positive": 21,
+      "users_excluded_seen_only": 0,
+      "cold_start_users": 29,
+      "unreachable_positive_fraction": 0.0009182399177257033,
+      "catalog_coverage": 0.03959584926269798,
+      "latency_ms_p50": 0.0015410000004933977,
+      "latency_ms_p95": 0.005401649999647868,
+      "recommendations_per_second": 480649.4107578738,
+      "timing_scope": "in-process recommendation only, sequential, no network or API",
+      "cohorts": {
+        "warm": {
+          "users": 982,
+          "metrics": {
+            "recall": 0.05510184916835909,
+            "precision": 0.19012219959266805,
+            "ndcg": 0.20687116692248725,
+            "hit_rate": 0.6313645621181263,
+            "diversity": 0.7845510727486288,
+            "popularity_bias": 1646.8003054989815,
+            "novelty_bits": 8.183877518811121
+          }
+        },
+        "fallback_eligible": {
+          "users": 206,
+          "metrics": {
+            "recall": 0.06333897989540632,
+            "precision": 0.24757281553398058,
+            "ndcg": 0.26818576918187265,
+            "hit_rate": 0.6747572815533981,
+            "diversity": 0.7784837160322596,
+            "popularity_bias": 1801.932038834952,
+            "novelty_bits": 8.036420529881099
+          }
+        }
+      }
+    },
+    "item_cf": {
+      "metrics": {
+        "recall": {
+          "mean": 0.05849748418051535,
+          "ci95": [
+            0.053706644973717264,
+            0.0633288153640949
+          ]
+        },
+        "precision": {
+          "mean": 0.21456228956228957,
+          "ci95": [
+            0.20109006734006735,
+            0.2275252525252525
+          ]
+        },
+        "ndcg": {
+          "mean": 0.23633594450487544,
+          "ci95": [
+            0.22158287603476404,
+            0.2515509210873288
+          ]
+        },
+        "hit_rate": {
+          "mean": 0.6380471380471381,
+          "ci95": [
+            0.6111111111111112,
+            0.6624579124579124
+          ]
+        },
+        "diversity": {
+          "mean": 0.794284801275542,
+          "ci95": [
+            0.7909433143159995,
+            0.7973975914346284
+          ]
+        },
+        "popularity_bias": {
+          "mean": 1488.135606060606,
+          "ci95": [
+            1471.7811447811448,
+            1504.3090361952861
+          ]
+        },
+        "novelty_bits": {
+          "mean": 8.364446661527502,
+          "ci95": [
+            8.345725900737015,
+            8.383550743546788
+          ]
+        }
+      },
+      "users_evaluated": 1188,
+      "target_users": 1209,
+      "users_without_positive": 21,
+      "users_excluded_seen_only": 0,
+      "cold_start_users": 29,
+      "unreachable_positive_fraction": 0.0009182399177257033,
+      "catalog_coverage": 0.06116876024030585,
+      "latency_ms_p50": 0.7468124999996384,
+      "latency_ms_p95": 0.8028728999997625,
+      "recommendations_per_second": 1600.2394324575369,
+      "timing_scope": "in-process recommendation only, sequential, no network or API",
+      "cohorts": {
+        "warm": {
+          "users": 982,
+          "metrics": {
+            "recall": 0.057481854733196044,
+            "precision": 0.20763747454175155,
+            "ndcg": 0.22965461672130982,
+            "hit_rate": 0.630346232179226,
+            "diversity": 0.7975994892186339,
+            "popularity_bias": 1422.3086558044808,
+            "novelty_bits": 8.433258660630514
+          }
+        },
+        "fallback_eligible": {
+          "users": 206,
+          "metrics": {
+            "recall": 0.06333897989540632,
+            "precision": 0.24757281553398058,
+            "ndcg": 0.26818576918187265,
+            "hit_rate": 0.6747572815533981,
+            "diversity": 0.7784837160322596,
+            "popularity_bias": 1801.932038834952,
+            "novelty_bits": 8.036420529881099
+          }
+        }
+      }
+    },
+    "implicit_als": {
+      "metrics": {
+        "recall": {
+          "mean": 0.060797207965140966,
+          "ci95": [
+            0.054790779206398736,
+            0.06717840838701417
+          ]
+        },
+        "precision": {
+          "mean": 0.18013468013468015,
+          "ci95": [
+            0.16792508417508417,
+            0.19141414141414143
+          ]
+        },
+        "ndcg": {
+          "mean": 0.19380397149612635,
+          "ci95": [
+            0.18112809701893848,
+            0.20591781264542663
+          ]
+        },
+        "hit_rate": {
+          "mean": 0.6262626262626263,
+          "ci95": [
+            0.5993055555555556,
+            0.6506734006734006
+          ]
+        },
+        "diversity": {
+          "mean": 0.742210323398595,
+          "ci95": [
+            0.7356604793526089,
+            0.7484469808312401
+          ]
+        },
+        "popularity_bias": {
+          "mean": 933.3531144781144,
+          "ci95": [
+            901.1603324915823,
+            964.8477693602694
+          ]
+        },
+        "novelty_bits": {
+          "mean": 9.392900933944475,
+          "ci95": [
+            9.337806401678924,
+            9.447745484071248
+          ]
+        }
+      },
+      "users_evaluated": 1188,
+      "target_users": 1209,
+      "users_without_positive": 21,
+      "users_excluded_seen_only": 0,
+      "cold_start_users": 29,
+      "unreachable_positive_fraction": 0.0009182399177257033,
+      "catalog_coverage": 0.3039322774440197,
+      "latency_ms_p50": 0.7680415000006491,
+      "latency_ms_p95": 0.8174688500002247,
+      "recommendations_per_second": 1558.845285669512,
+      "timing_scope": "in-process recommendation only, sequential, no network or API",
+      "cohorts": {
+        "warm": {
+          "users": 982,
+          "metrics": {
+            "recall": 0.06026400529952521,
+            "precision": 0.1659877800407332,
+            "ndcg": 0.17820045792864803,
+            "hit_rate": 0.6160896130346232,
+            "diversity": 0.7346010373675004,
+            "popularity_bias": 751.1461303462322,
+            "novelty_bits": 9.677457922984244
+          }
+        },
+        "fallback_eligible": {
+          "users": 206,
+          "metrics": {
+            "recall": 0.06333897989540632,
+            "precision": 0.24757281553398058,
+            "ndcg": 0.26818576918187265,
+            "hit_rate": 0.6747572815533981,
+            "diversity": 0.7784837160322596,
+            "popularity_bias": 1801.932038834952,
+            "novelty_bits": 8.036420529881099
+          }
+        }
+      }
+    }
+  }
+}

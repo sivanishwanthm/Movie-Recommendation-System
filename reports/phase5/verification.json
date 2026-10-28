@@ -1,0 +1,31 @@
+{
+  "phase": 5,
+  "python_tests_passed": 45,
+  "python_tests_skipped": 0,
+  "production_build": "passed",
+  "typescript": "passed",
+  "http_smoke": "passed",
+  "synthetic_reproducibility": "exact match across two seeded runs",
+  "browser_visual_qa": "not performed: Computer Use permission unavailable",
+  "public_schema_version": 2,
+  "public_registered_experiments": 0,
+  "public_assignments": 0,
+  "live_enrollment": "off",
+  "qa_cleanup": "completed; disposable schema removed and test PostgreSQL stopped",
+  "source_sha256": {
+    "configs/experiment_popularity_vs_cf.v1.json": "f05fce50f0a16893ebf6737c503f1294981179aaba1e28b708e8a0db8114dd30",
+    "frontend/app/experiments/page.tsx": "c6566ca548c60caf779da2e23f8a0ec6c2ef54b97df407e69423512b86838faa",
+    "scripts/smoke_phase5.py": "1dccf6f22449ed668cfe861fe40bcb1bcad1bc04b8931f408627875aec5485ae",
+    "src/recsyslab/experimentation/__init__.py": "f51f13e17b5405b8887fd113a697b831d943cc026560ec1d075c99c9c4b3f756",
+    "src/recsyslab/experimentation/cli.py": "cac32f215cd31ecf61e68240d575e599f431d6178c9ff076527c61c0c08c1309",
+    "src/recsyslab/experimentation/design.py": "e46444da1c2b2bcf88fc119bf3140a8e679a1b54365ddd4dbe652359ab9c1ced",
+    "src/recsyslab/experimentation/service.py": "ecce6e3d02ea7baf2da65a4e83418c41dd7702d256f03729390e7b816b0e35e9",
+    "src/recsyslab/experimentation/simulate.py": "6a65232ce0672e0fe1cf58123b7c025de8caa86240bf39b8aa5e4ebd21ff9a38",
+    "src/recsyslab/experimentation/statistics.py": "6970f63b9bba38802e359ee26fd30176335d8870c8a98a3e1fb2dfc3c42c5a63",
+    "src/recsyslab/serving/app.py": "1154beff723be1886bff8e3599319322b49f04d1ab08824af17f3284755f3b0e",
+    "src/recsyslab/serving/database.py": "0c04c9fa428bccec61e33b38428ca09ac1ed151817e4014347f0e1262916f82a",
+    "src/recsyslab/serving/migrations.py": "c92aaffdaafaeddd8b296dedf7c6fcfce95ba6db1ed66f03c45cad5ba63ba542",
+    "src/recsyslab/serving/model.py": "5b7b4084e9982b89f94c60024ac859353e43d0967fde1ee1ae6e77555a766bc8",
+    "tests/test_experiments.py": "009d48eedb18ffb9f90c7be44b5b1f0510793c63d981aac71f34f8d7ba5e1f40"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "ratings": 1000209,
+  "users": 6040,
+  "movies_in_metadata": 3883,
+  "rated_movies": 3706,
+  "sparsity": 0.9573532020200125,
+  "rating_mean": 3.581564453029317,
+  "rating_std": 1.117101845373258,
+  "rating_counts": {
+    "1": 56174,
+    "2": 107557,
+    "3": 261197,
+    "4": 348971,
+    "5": 226310
+  },
+  "ratings_per_user": {
+    "count": 6040.0,
+    "mean": 165.5975165562914,
+    "std": 192.74702906977777,
+    "min": 20.0,
+    "25%": 44.0,
+    "50%": 96.0,
+    "75%": 208.0,
+    "max": 2314.0
+  },
+  "ratings_per_movie": {
+    "count": 3706.0,
+    "mean": 269.88909875876953,
+    "std": 384.0478375720256,
+    "min": 1.0,
+    "25%": 33.0,
+    "50%": 123.5,
+    "75%": 350.0,
+    "max": 3428.0
+  },
+  "timestamp_min_utc": "2000-04-25 23:05:32+00:00",
+  "timestamp_max_utc": "2003-02-28 17:49:50+00:00",
+  "interpretation": "Observational explicit ratings; missing ratings are not negative outcomes."
+}

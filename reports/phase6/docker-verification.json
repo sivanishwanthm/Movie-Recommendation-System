@@ -1,0 +1,80 @@
+{
+  "verified_on": "2026-10-28",
+  "docker_engine": "29.9.2",
+  "compose": "v5.6.1",
+  "platform": "linux/arm64",
+  "project": "recsyslab-check",
+  "context": "temporary staged checkout outside Desktop",
+  "data_source": "checksum-matched cached official MovieLens 1M archive; fresh training in container",
+  "archive_sha256": "a6898adb50b9ca05aa231689da44c217cb524e7ebd39d264c56e2832f2c54e20",
+  "images_built": true,
+  "fresh_model_training": true,
+  "migration_and_catalog_import": "passed",
+  "http_smoke": {
+    "result": "passed",
+    "pages_checked": 6,
+    "transport": "Next.js same-origin proxy \u2192 FastAPI \u2192 PostgreSQL",
+    "data_kind": "synthetic QA actions in isolated schema, not human engagement",
+    "checks": [
+      "HttpOnly session",
+      "profile persistence",
+      "catalog search",
+      "popularity fallback",
+      "live item-CF",
+      "rated-item exclusion",
+      "impression deduplication",
+      "rating replay",
+      "click attribution",
+      "artifact-backed metrics"
+    ]
+  },
+  "prometheus_scrape_up": true,
+  "prometheus_healthy_rules": 3,
+  "promtool": "3 rules validated",
+  "metrics_auth": "unauthenticated access rejected",
+  "mlflow_container_registration": "version 1; downloaded bundle verified",
+  "mlflow_explicit_uri_registration": "version 2; CLI context fix verified",
+  "rollback": {
+    "initial": {
+      "release": "1293486d2b038817164a3749b808babcc8dc075c4675bed8ec80f100d2ee37b7",
+      "previous": null,
+      "model_version": "item-cf-7069fda90d1af157",
+      "selected_at": "2026-10-28T16:23:22.785828+00:00"
+    },
+    "candidate_release": "bdb3ab33a7cb307c99a411194beb7536051d589731f7e9e52acaa73ee67b96db",
+    "candidate_model_version": "item-cf-fc9e1372bc700606",
+    "running_process_stays_pinned": true,
+    "activated": {
+      "status": "ready",
+      "model_version": "item-cf-fc9e1372bc700606",
+      "schema_version": 2,
+      "release_id": "bdb3ab33a7cb307c99a411194beb7536051d589731f7e9e52acaa73ee67b96db"
+    },
+    "restored": {
+      "status": "ready",
+      "model_version": "item-cf-7069fda90d1af157",
+      "schema_version": 2,
+      "release_id": "1293486d2b038817164a3749b808babcc8dc075c4675bed8ec80f100d2ee37b7"
+    },
+    "status": "passed"
+  },
+  "regression": {
+    "passed": 53,
+    "warnings": 14
+  },
+  "original_profiles_preserved": 1,
+  "original_ratings_preserved": 6,
+  "open_checks": [
+    "direct Desktop bind mount stalls",
+    "container dataset-host DNS lookup failed",
+    "hosted GitHub CI not run",
+    "browser visual QA not performed",
+    "external alert delivery not configured"
+  ],
+  "files_sha256": {
+    "compose.yaml": "0d2240e5597aa267be3d19eacffd2df405502317dc0b73c79d0bcada3b38996c",
+    "src/recsyslab/operations/releases.py": "05bb0bd01cbbfc7ceb7e5a3ed34fad065fd7edd6db7552208d2a4957522fb6a9",
+    "tests/test_operations.py": "7e5b8a28b6553a8d5bf7264ab9d2397480f26057d69282fcee17affe57c504bc",
+    "scripts/stage_docker_check.py": "cce5536cd8eab54832848b4ab373c449c58da9ed16fbdfcec5fce624c55640c6"
+  }
+}

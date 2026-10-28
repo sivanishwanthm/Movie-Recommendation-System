@@ -1,0 +1,21 @@
+{
+  "result": "passed",
+  "data_kind": "synthetic QA interactions in disposable database schema",
+  "not_live_engagement": true,
+  "variants_exercised": [
+    "control",
+    "treatment"
+  ],
+  "checks": [
+    "Next.js experiment route",
+    "protected operator report",
+    "separate synthetic source",
+    "pre-assignment eligibility",
+    "deterministic repeated assignment",
+    "both variant branches",
+    "idempotent impressions",
+    "attributed clicks",
+    "immature-outcome exclusion",
+    "no premature decision"
+  ]
+}

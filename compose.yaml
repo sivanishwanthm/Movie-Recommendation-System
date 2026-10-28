@@ -1,0 +1,135 @@
+name: recsyslab
+services:
+  postgres:
+    image: postgres:16.9-bookworm
+    environment:
+      POSTGRES_USER: recsyslab
+      POSTGRES_DB: recsyslab
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run python scripts/init_compose.py first}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U recsyslab -d recsyslab']
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+  bootstrap:
+    profiles: [tools]
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile.api
+    user: '${LOCAL_UID:-1000}:${LOCAL_GID:-1000}'
+    command: [python, scripts/bootstrap_release.py]
+    volumes:
+      - type: bind
+        bind:
+          create_host_path: false
+        source: ${DATA_DIR:-./data}
+        target: /app/data
+      - type: bind
+        bind:
+          create_host_path: false
+        source: ${ARTIFACTS_DIR:-./artifacts}
+        target: /app/artifacts
+  migrate:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile.api
+    command: [python, -m, recsyslab.serving.catalog]
+    environment:
+      DATABASE_URL: postgresql+psycopg://recsyslab:${POSTGRES_PASSWORD}@postgres:5432/recsyslab
+    volumes:
+      - type: bind
+        bind:
+          create_host_path: false
+        source: ${DATA_DIR:-./data}
+        target: /app/data
+        read_only: true
+    depends_on:
+      postgres:
+        condition: service_healthy
+  api:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile.api
+    environment:
+      DATABASE_URL: postgresql+psycopg://recsyslab:${POSTGRES_PASSWORD}@postgres:5432/recsyslab
+      RELEASE_ROOT: /app/artifacts/releases
+      REPORTS_DIR: /app/reports
+      APP_ORIGIN: http://${APP_HOST:-localhost}:${WEB_PORT:-3000}
+      METRICS_TOKEN_FILE: /run/secrets/metrics_token
+      ACTIVE_EXPERIMENT: ''
+    secrets: [metrics_token]
+    volumes:
+      - type: bind
+        bind:
+          create_host_path: false
+        source: ${ARTIFACTS_DIR:-./artifacts}/releases
+        target: /app/artifacts/releases
+        read_only: true
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+    restart: unless-stopped
+  web:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile.web
+    ports: ['127.0.0.1:${WEB_PORT:-3000}:3000']
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+    restart: unless-stopped
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.22.2
+    command: [mlflow, server, --host, 0.0.0.0, --port, '5000', --backend-store-uri, 'sqlite:////mlflow/tracking.db', --serve-artifacts, --artifacts-destination, /mlflow/artifacts]
+    volumes:
+      - mlflow-data:/mlflow
+    ports: ['127.0.0.1:${MLFLOW_PORT:-5000}:5000']
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:5000/health', timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+  prometheus:
+    image: prom/prometheus:v3.4.1
+    command: [--config.file=/etc/prometheus/prometheus.yml, --storage.tsdb.path=/prometheus, --storage.tsdb.retention.time=15d]
+    volumes:
+      - type: bind
+        bind:
+          create_host_path: false
+        source: ./deploy/prometheus.yml
+        target: /etc/prometheus/prometheus.yml
+        read_only: true
+      - type: bind
+        bind:
+          create_host_path: false
+        source: ./deploy/alerts.yml
+        target: /etc/prometheus/alerts.yml
+        read_only: true
+      - prometheus-data:/prometheus
+    secrets: [metrics_token]
+    ports: ['127.0.0.1:${PROMETHEUS_PORT:-9090}:9090']
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+secrets:
+  metrics_token:
+    file: ./.secrets/metrics_token
+volumes:
+  postgres-data:
+  mlflow-data:
+  prometheus-data:

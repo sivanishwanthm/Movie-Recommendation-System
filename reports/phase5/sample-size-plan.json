@@ -1,0 +1,10 @@
+{
+  "control_users": 3841,
+  "treatment_users": 3841,
+  "total_users": 7682,
+  "baseline_rate": 0.1,
+  "absolute_mde": 0.02,
+  "target_power": 0.8,
+  "alpha": 0.05,
+  "method": "normal-approximation two-proportion planning; independent profiles; no attrition adjustment"
+}

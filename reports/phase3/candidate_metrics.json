@@ -1,0 +1,60 @@
+{
+  "validation": {
+    "candidate_limit": 200,
+    "users": 1103,
+    "mean_candidates": 200.0,
+    "candidate_recall": {
+      "mean": 0.4510924796482574,
+      "ci95": [
+        0.43619743405808603,
+        0.46547529429780077
+      ]
+    },
+    "oracle_recall_at_k": {
+      "mean": 0.30442439582556224,
+      "ci95": [
+        0.2888297146321074,
+        0.31928674273550983
+      ]
+    },
+    "cohorts": {
+      "warm": {
+        "users": 489,
+        "candidate_recall": 0.4300860281541336
+      },
+      "fallback_eligible": {
+        "users": 614,
+        "candidate_recall": 0.4678223734277795
+      }
+    }
+  },
+  "test": {
+    "candidate_limit": 200,
+    "users": 1188,
+    "mean_candidates": 200.0,
+    "candidate_recall": {
+      "mean": 0.41319037862027963,
+      "ci95": [
+        0.40184468712885735,
+        0.4256846847474535
+      ]
+    },
+    "oracle_recall_at_k": {
+      "mean": 0.293005185863029,
+      "ci95": [
+        0.28040920839137384,
+        0.3063268981020849
+      ]
+    },
+    "cohorts": {
+      "warm": {
+        "users": 982,
+        "candidate_recall": 0.4083892848476079
+      },
+      "fallback_eligible": {
+        "users": 206,
+        "candidate_recall": 0.43607714602204534
+      }
+    }
+  }
+}

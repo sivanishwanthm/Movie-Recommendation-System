@@ -1,0 +1,8 @@
+{
+  "dataset": "1m", "train_fraction": 0.8, "validation_fraction": 0.1,
+  "positive_threshold": 4.0, "k": 10, "seed": 42, "bootstrap_samples": 1000,
+  "min_positives": 3, "candidate_limit": 200, "retriever_fraction": 0.75,
+  "two_tower": {"dimension": 32, "epochs": 5, "batch_size": 2048, "learning_rate": 0.002, "temperature": 0.2},
+  "ranker": {"rounds": 60, "num_leaves": 15, "min_data_in_leaf": 30},
+  "item_cf": {"neighbors": 100, "shrinkage": 10.0}
+}

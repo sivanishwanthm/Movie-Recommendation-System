@@ -1,0 +1,13 @@
+{
+  "reference_rows": 800164,
+  "current_rows": 100024,
+  "minimum_rows": 100,
+  "status": "ok",
+  "rating_js_divergence_bits": 3.712670348704078e-05,
+  "item_js_divergence_bits": 0.0007000070112885017,
+  "unseen_item_fraction": 0.00016995920978965049,
+  "threshold_bits": 0.1,
+  "interpretation": "Heuristic distribution alert, not a significance test or recommendation-quality estimate. MovieLens ratings and live profile ratings have different selection mechanisms. Review cohort, volume and instrumentation before deciding to retrain.",
+  "source": "offline_temporal_holdout",
+  "interpretation_scope": "MovieLens train versus validation ratings; no live user traffic."
+}

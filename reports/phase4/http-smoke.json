@@ -1,0 +1,18 @@
+{
+  "result": "passed",
+  "pages_checked": 6,
+  "transport": "Next.js same-origin proxy \u2192 FastAPI \u2192 PostgreSQL",
+  "data_kind": "synthetic QA actions in isolated schema, not human engagement",
+  "checks": [
+    "HttpOnly session",
+    "profile persistence",
+    "catalog search",
+    "popularity fallback",
+    "live item-CF",
+    "rated-item exclusion",
+    "impression deduplication",
+    "rating replay",
+    "click attribution",
+    "artifact-backed metrics"
+  ]
+}

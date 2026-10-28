@@ -1,0 +1,5 @@
+{
+  "metric": "validation macro NDCG@K",
+  "selected_model": "item_cf",
+  "note": "One preconfigured candidate per family; no test-driven hyperparameter tuning."
+}

@@ -1,0 +1,28 @@
+{
+  "checked_at": "2026-10-28T05:27:16.988072+00:00",
+  "scope": "public application schema; not cluster roles, model files, or MLflow",
+  "backup": "artifacts/backups/20261028T052716Z-f8fd78d4/application.dump",
+  "status": "passed",
+  "source_modified": false,
+  "postgres_version": "18.4",
+  "table_counts": {
+    "experiment_assignments": 0,
+    "experiment_attempts": 0,
+    "experiment_batches": 0,
+    "experiment_exposures": 0,
+    "experiments": 0,
+    "interaction_events": 118,
+    "movies": 3883,
+    "profiles": 1,
+    "ratings": 6,
+    "recommendation_batches": 16,
+    "schema_version": 1
+  },
+  "all_table_hashes_match": true,
+  "columns_indexes_constraints_match": true,
+  "schema_comparison": "Columns/indexes exact; CHECK constraints compared after PostgreSQL reparse in temporary tables.",
+  "restored_api_health": "passed",
+  "restored_catalog_search": "passed",
+  "backup_sha256": "187a65b6c9c66a4d3d2a3171728ce6b00288a9cad4f21f0a607c04bfb40fc846",
+  "temporary_database_removed": true
+}

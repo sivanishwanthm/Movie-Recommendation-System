@@ -1,0 +1,22 @@
+{
+  "name": "popularity-vs-item-cf",
+  "version": 1,
+  "salt": "recsyslab-popularity-vs-cf-v1-2026",
+  "starts_at": "2026-11-01T00:00:00Z",
+  "ends_at": "2026-11-15T00:00:00Z",
+  "control": "popularity",
+  "treatment": "item_cf",
+  "model_version": "item-cf-5e25ab883c84f961",
+  "catalog_size": 3662,
+  "min_positives": 3,
+  "window_hours": 24,
+  "treatment_probability": 0.5,
+  "baseline_rate": 0.1,
+  "minimum_detectable_effect": 0.02,
+  "alpha": 0.05,
+  "power": 0.8,
+  "srm_alpha": 0.001,
+  "max_latency_delta_ms": 20.0,
+  "max_error_rate_delta": 0.01,
+  "min_catalog_coverage_delta": -0.05
+}

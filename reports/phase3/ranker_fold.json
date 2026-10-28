@@ -1,0 +1,30 @@
+{
+  "groups": 189,
+  "rows": 37800,
+  "positive_labels": 2654,
+  "skipped_users": {
+    "fallback": 1320,
+    "no_positive_candidate": 74,
+    "no_negative_candidate": 0
+  },
+  "feature_history_max_timestamp": 974687962,
+  "label_min_timestamp": 974687964,
+  "label_max_timestamp": 975768719,
+  "cutoff": 974687964,
+  "prefix_rows": 600120,
+  "label_rows": 200044,
+  "feature_names": [
+    "tower_score",
+    "reciprocal_retrieval_rank",
+    "log_item_positives",
+    "log_user_positives",
+    "genre_affinity"
+  ],
+  "retrieval_losses": [
+    0.45515398654459654,
+    0.315278151434549,
+    0.30081789046637025,
+    0.2874829232015902,
+    0.27120440635225873
+  ]
+}

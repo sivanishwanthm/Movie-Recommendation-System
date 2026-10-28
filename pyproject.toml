@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "recsyslab"
+version = "0.1.0"
+description = "Reproducible temporal movie recommendation benchmarks"
+requires-python = ">=3.9"
+dependencies = ["numpy==1.26.4", "pandas==2.2.3", "matplotlib==3.9.4", "scipy==1.13.1"]
+
+[project.optional-dependencies]
+dev = ["pytest==8.3.5"]
+phase6 = ["mlflow-skinny==2.22.2", "alembic==1.16.5", "sqlparse==0.5.3", "prometheus-client==0.22.1"]
+phase4 = ["prometheus-client==0.22.1", "fastapi==0.115.12", "uvicorn==0.34.3", "SQLAlchemy==2.0.41", "psycopg[binary]==3.2.9", "httpx==0.28.1"]
+phase3 = ["torch==2.6.0", "faiss-cpu==1.10.0", "lightgbm==4.6.0"]
+
+[project.scripts]
+recsyslab = "recsyslab.pipeline:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

@@ -1,0 +1,399 @@
+{
+  "source": "synthetic_simulation",
+  "note": "All outcomes, latencies and candidate IDs are generated. No MovieLens clicks or live engagement are claimed.",
+  "scenarios": {
+    "null": {
+      "experiment_key": "synthetic-calibration:v1",
+      "source": "synthetic_simulation",
+      "as_of": "2026-01-16T01:00:00+00:00",
+      "primary_metric": "any attributed recommendation click within 24 hours of enrollment",
+      "analysis_unit": "browser profile; mature enrolled profiles (intention-to-treat)",
+      "primary": {
+        "control": {
+          "users": 4943,
+          "converted": 493,
+          "rate": 0.09973700182075662,
+          "ci": [
+            0.09169184082527082,
+            0.10840380951252435
+          ]
+        },
+        "treatment": {
+          "users": 5057,
+          "converted": 511,
+          "rate": 0.10104805220486454,
+          "ci": [
+            0.09304171062554269,
+            0.10966004701057609
+          ]
+        },
+        "absolute_difference": 0.0013110503841079202,
+        "difference_ci": [
+          -0.010487892833437547,
+          0.01309625593924733
+        ],
+        "relative_lift": 0.013145075149382235,
+        "p_value": 0.8417755950296646,
+        "method": "two-sided Fisher exact; Wilson rates; Newcombe independent-proportion difference interval",
+        "confidence_level": 0.95
+      },
+      "srm": {
+        "control": 4943,
+        "treatment": 5057,
+        "expected_treatment_fraction": 0.5,
+        "p_value": 0.25847512621890206,
+        "threshold": 0.001,
+        "mismatch": false,
+        "method": "two-sided exact binomial allocation test on all enrolled profiles"
+      },
+      "plan": {
+        "control_users": 3841,
+        "treatment_users": 3841,
+        "total_users": 7682,
+        "baseline_rate": 0.1,
+        "absolute_mde": 0.02,
+        "target_power": 0.8,
+        "alpha": 0.05,
+        "method": "normal-approximation two-proportion planning; independent profiles; no attrition adjustment"
+      },
+      "variants": {
+        "control": {
+          "enrolled_users": 4943,
+          "mature_users": 4943,
+          "pending_users": 0,
+          "exposed_mature_users": 4045,
+          "requests": 4943,
+          "unfinished_requests": 0,
+          "missing_latency_requests": 0,
+          "users_without_requests": 0,
+          "catalog_coverage": 1.0,
+          "unique_recommended_items": 1000,
+          "mean_user_api_latency_ms": 14.972905780368773,
+          "mean_user_request_error_rate": 0.0
+        },
+        "treatment": {
+          "enrolled_users": 5057,
+          "mature_users": 5057,
+          "pending_users": 0,
+          "exposed_mature_users": 4160,
+          "requests": 5057,
+          "unfinished_requests": 0,
+          "missing_latency_requests": 0,
+          "users_without_requests": 0,
+          "catalog_coverage": 1.0,
+          "unique_recommended_items": 1000,
+          "mean_user_api_latency_ms": 14.95116982303673,
+          "mean_user_request_error_rate": 0.0
+        }
+      },
+      "guardrails": {
+        "api_latency_ms": {
+          "difference": -0.021735957332042588,
+          "ci95": [
+            -0.14432639180802456,
+            0.09679484157560364
+          ],
+          "control_users": 4943,
+          "treatment_users": 5057,
+          "method": "independent user bootstrap, 95% percentile interval",
+          "maximum_delta": 20.0
+        },
+        "user_any_request_error_probability": {
+          "difference": 0.0,
+          "ci95": [
+            -0.0007765477937127811,
+            0.000759055357088638
+          ],
+          "method": "Newcombe interval for probability that a profile has any failed recommendation request",
+          "maximum_delta": 0.01
+        },
+        "catalog_coverage": {
+          "difference": 0.0,
+          "minimum_delta": -0.05,
+          "method": "descriptive catalog-wide fraction; no significance test"
+        }
+      },
+      "review_eligible": false,
+      "review_blockers": [
+        "synthetic_data_cannot_support_online_decisions"
+      ],
+      "interpretation": "No automatic winner. Interim p-values are descriptive; fixed-horizon review and guardrail checks are required.",
+      "simulation_inputs": {
+        "users": 10000,
+        "seed": 42,
+        "control_conversion_probability": 0.1,
+        "treatment_conversion_probability": 0.1,
+        "deliberate_assignment_corruption": false,
+        "latency_model": "independent Normal(15,3) ms, clipped at 0.1; one successful request per simulated profile"
+      }
+    },
+    "injected_effect": {
+      "experiment_key": "synthetic-calibration:v1",
+      "source": "synthetic_simulation",
+      "as_of": "2026-01-16T01:00:00+00:00",
+      "primary_metric": "any attributed recommendation click within 24 hours of enrollment",
+      "analysis_unit": "browser profile; mature enrolled profiles (intention-to-treat)",
+      "primary": {
+        "control": {
+          "users": 4943,
+          "converted": 490,
+          "rate": 0.09913008294557961,
+          "ci": [
+            0.09110799938464981,
+            0.1077747558058183
+          ]
+        },
+        "treatment": {
+          "users": 5057,
+          "converted": 687,
+          "rate": 0.13585129523432865,
+          "ci": [
+            0.12668385691131817,
+            0.14557155160759766
+          ]
+        },
+        "absolute_difference": 0.03672121228874904,
+        "difference_ci": [
+          0.024120724430465593,
+          0.049324275750487895
+        ],
+        "relative_lift": 0.37043459661895217,
+        "p_value": 1.2798445428961108e-08,
+        "method": "two-sided Fisher exact; Wilson rates; Newcombe independent-proportion difference interval",
+        "confidence_level": 0.95
+      },
+      "srm": {
+        "control": 4943,
+        "treatment": 5057,
+        "expected_treatment_fraction": 0.5,
+        "p_value": 0.25847512621890206,
+        "threshold": 0.001,
+        "mismatch": false,
+        "method": "two-sided exact binomial allocation test on all enrolled profiles"
+      },
+      "plan": {
+        "control_users": 3841,
+        "treatment_users": 3841,
+        "total_users": 7682,
+        "baseline_rate": 0.1,
+        "absolute_mde": 0.02,
+        "target_power": 0.8,
+        "alpha": 0.05,
+        "method": "normal-approximation two-proportion planning; independent profiles; no attrition adjustment"
+      },
+      "variants": {
+        "control": {
+          "enrolled_users": 4943,
+          "mature_users": 4943,
+          "pending_users": 0,
+          "exposed_mature_users": 4076,
+          "requests": 4943,
+          "unfinished_requests": 0,
+          "missing_latency_requests": 0,
+          "users_without_requests": 0,
+          "catalog_coverage": 1.0,
+          "unique_recommended_items": 1000,
+          "mean_user_api_latency_ms": 14.98600274757975,
+          "mean_user_request_error_rate": 0.0
+        },
+        "treatment": {
+          "enrolled_users": 5057,
+          "mature_users": 5057,
+          "pending_users": 0,
+          "exposed_mature_users": 4202,
+          "requests": 5057,
+          "unfinished_requests": 0,
+          "missing_latency_requests": 0,
+          "users_without_requests": 0,
+          "catalog_coverage": 1.0,
+          "unique_recommended_items": 1000,
+          "mean_user_api_latency_ms": 14.979797259557385,
+          "mean_user_request_error_rate": 0.0
+        }
+      },
+      "guardrails": {
+        "api_latency_ms": {
+          "difference": -0.006205488022365202,
+          "ci95": [
+            -0.11762042482506856,
+            0.11904815625124975
+          ],
+          "control_users": 4943,
+          "treatment_users": 5057,
+          "method": "independent user bootstrap, 95% percentile interval",
+          "maximum_delta": 20.0
+        },
+        "user_any_request_error_probability": {
+          "difference": 0.0,
+          "ci95": [
+            -0.0007765477937127811,
+            0.000759055357088638
+          ],
+          "method": "Newcombe interval for probability that a profile has any failed recommendation request",
+          "maximum_delta": 0.01
+        },
+        "catalog_coverage": {
+          "difference": 0.0,
+          "minimum_delta": -0.05,
+          "method": "descriptive catalog-wide fraction; no significance test"
+        }
+      },
+      "review_eligible": false,
+      "review_blockers": [
+        "synthetic_data_cannot_support_online_decisions"
+      ],
+      "interpretation": "No automatic winner. Interim p-values are descriptive; fixed-horizon review and guardrail checks are required.",
+      "simulation_inputs": {
+        "users": 10000,
+        "seed": 42,
+        "control_conversion_probability": 0.1,
+        "treatment_conversion_probability": 0.13,
+        "deliberate_assignment_corruption": false,
+        "latency_model": "independent Normal(15,3) ms, clipped at 0.1; one successful request per simulated profile"
+      }
+    },
+    "assignment_fault": {
+      "experiment_key": "synthetic-calibration:v1",
+      "source": "synthetic_simulation",
+      "as_of": "2026-01-16T01:00:00+00:00",
+      "primary_metric": "any attributed recommendation click within 24 hours of enrollment",
+      "analysis_unit": "browser profile; mature enrolled profiles (intention-to-treat)",
+      "primary": {
+        "control": {
+          "users": 1945,
+          "converted": 212,
+          "rate": 0.1089974293059126,
+          "ci": [
+            0.09591080326883165,
+            0.12362550476907029
+          ]
+        },
+        "treatment": {
+          "users": 8055,
+          "converted": 785,
+          "rate": 0.09745499689633767,
+          "ci": [
+            0.09116891130141162,
+            0.10412484982576224
+          ]
+        },
+        "absolute_difference": -0.011542432409574921,
+        "difference_ci": [
+          -0.02746397328546294,
+          0.0031458867296104177
+        ],
+        "relative_lift": -0.10589637281426045,
+        "p_value": 0.12910062166990477,
+        "method": "two-sided Fisher exact; Wilson rates; Newcombe independent-proportion difference interval",
+        "confidence_level": 0.95
+      },
+      "srm": {
+        "control": 1945,
+        "treatment": 8055,
+        "expected_treatment_fraction": 0.5,
+        "p_value": 0.0,
+        "threshold": 0.001,
+        "mismatch": true,
+        "method": "two-sided exact binomial allocation test on all enrolled profiles"
+      },
+      "plan": {
+        "control_users": 3841,
+        "treatment_users": 3841,
+        "total_users": 7682,
+        "baseline_rate": 0.1,
+        "absolute_mde": 0.02,
+        "target_power": 0.8,
+        "alpha": 0.05,
+        "method": "normal-approximation two-proportion planning; independent profiles; no attrition adjustment"
+      },
+      "variants": {
+        "control": {
+          "enrolled_users": 1945,
+          "mature_users": 1945,
+          "pending_users": 0,
+          "exposed_mature_users": 1607,
+          "requests": 1945,
+          "unfinished_requests": 0,
+          "missing_latency_requests": 0,
+          "users_without_requests": 0,
+          "catalog_coverage": 1.0,
+          "unique_recommended_items": 1000,
+          "mean_user_api_latency_ms": 14.934331932972015,
+          "mean_user_request_error_rate": 0.0
+        },
+        "treatment": {
+          "enrolled_users": 8055,
+          "mature_users": 8055,
+          "pending_users": 0,
+          "exposed_mature_users": 6584,
+          "requests": 8055,
+          "unfinished_requests": 0,
+          "missing_latency_requests": 0,
+          "users_without_requests": 0,
+          "catalog_coverage": 1.0,
+          "unique_recommended_items": 1000,
+          "mean_user_api_latency_ms": 14.967046760080464,
+          "mean_user_request_error_rate": 0.0
+        }
+      },
+      "guardrails": {
+        "api_latency_ms": {
+          "difference": 0.03271482710844964,
+          "ci95": [
+            -0.12030887152984585,
+            0.18634370704570422
+          ],
+          "control_users": 1945,
+          "treatment_users": 8055,
+          "method": "independent user bootstrap, 95% percentile interval",
+          "maximum_delta": 20.0
+        },
+        "user_any_request_error_probability": {
+          "difference": 0.0,
+          "ci95": [
+            -0.001971149989296058,
+            0.0004766763113933094
+          ],
+          "method": "Newcombe interval for probability that a profile has any failed recommendation request",
+          "maximum_delta": 0.01
+        },
+        "catalog_coverage": {
+          "difference": 0.0,
+          "minimum_delta": -0.05,
+          "method": "descriptive catalog-wide fraction; no significance test"
+        }
+      },
+      "review_eligible": false,
+      "review_blockers": [
+        "planned_sample_size_not_reached",
+        "sample_ratio_mismatch",
+        "synthetic_data_cannot_support_online_decisions"
+      ],
+      "interpretation": "No automatic winner. Interim p-values are descriptive; fixed-horizon review and guardrail checks are required.",
+      "simulation_inputs": {
+        "users": 10000,
+        "seed": 42,
+        "control_conversion_probability": 0.1,
+        "treatment_conversion_probability": 0.1,
+        "deliberate_assignment_corruption": true,
+        "latency_model": "independent Normal(15,3) ms, clipped at 0.1; one successful request per simulated profile"
+      }
+    }
+  },
+  "null_calibration": {
+    "source": "synthetic_simulation",
+    "repetitions": 500,
+    "users_per_arm": 1000,
+    "null_conversion_rate": 0.1,
+    "seed": 31415,
+    "nominal_alpha": 0.05,
+    "rejections": 19,
+    "false_positive_fraction": 0.038,
+    "monte_carlo_ci95": [
+      0.024460118055830385,
+      0.05858477253064388
+    ],
+    "method": "independent equal-rate Bernoulli experiments; two-sided Fisher exact at 0.05",
+    "note": "Monte Carlo diagnostic, not evidence of live experiment validity or sequential-testing safety."
+  }
+}

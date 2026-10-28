@@ -1,0 +1,4 @@
+{
+  "selected_model": "item_cf",
+  "rule": "highest validation macro NDCG; fixed configurations, no test tuning"
+}

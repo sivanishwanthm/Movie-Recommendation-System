@@ -7,7 +7,7 @@ Two environment workarounds were required:
 1. Docker rejected the colon-containing project path with short bind syntax. Strict long-form binds fixed that parsing error, but Docker Desktop still stalled mounting the original Desktop directory. The successful test used a temporary copied checkout outside that path.
 2. The container could not resolve the MovieLens download host. We copied the previously downloaded official ZIP, verified the copy's SHA-256, and trained fresh models inside Docker. No local profile database or pretrained model was imported.
 
-This verifies the local container runtime path **with those prerequisites**. Unassisted dataset download, direct mounting of the original Desktop directory and hosted GitHub CI remain unverified. See [verification evidence](../reports/phase6/docker-verification.json) and [rollback evidence](../reports/phase6/docker-rollback.json).
+This verifies the local container runtime path **with those prerequisites**. Hosted GitHub CI subsequently passed its fresh download and clean deployment ([run](https://github.com/sivanishwanthm/Movie-Recommendation-System/actions/runs/40820689668)). Direct Desktop mounts and the local Docker download path remain unresolved on this Mac. See [verification evidence](../reports/phase6/docker-verification.json) and [rollback evidence](../reports/phase6/docker-rollback.json).
 
 ## Current running test stack
 

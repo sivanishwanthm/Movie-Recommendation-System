@@ -1,0 +1,23 @@
+{
+  "run_id": 40820689668,
+  "url": "https://github.com/sivanishwanthm/Movie-Recommendation-System/actions/runs/40820689668",
+  "verified_commit": "ef3807eced8a90578d1e0f38b38490624a12ac8d",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "tests",
+      "conclusion": "success",
+      "html_url": "https://github.com/sivanishwanthm/Movie-Recommendation-System/actions/runs/40820689668/job/123272212869"
+    },
+    {
+      "name": "compose",
+      "conclusion": "success",
+      "html_url": "https://github.com/sivanishwanthm/Movie-Recommendation-System/actions/runs/40820689668/job/123272213016"
+    }
+  ],
+  "pytest_log_summaries": [
+    "2026-10-29T04:59:50.1713693Z 53 passed, 15 warnings in 17.07s",
+    "2026-10-29T04:59:50.1713692Z 53 passed, 15 warnings in 17.07s"
+  ],
+  "scope": "GitHub-hosted Linux tests, frontend checks, fresh Compose bootstrap/download, migration/startup, MLflow registration, HTTP smoke and Prometheus rule validation."
+}

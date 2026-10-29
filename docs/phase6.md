@@ -1,6 +1,6 @@
 # Phase 6: operations and local deployment
 
-Phase 6 adds MLflow run tracking and model registration, verified releases, explicit activation and rollback, JSON request logs, Prometheus metrics/alert rules, drift reports, Docker Compose and CI. It remains a **local development deployment**. Local Docker execution, model restart/rollback, MLflow and Prometheus are now verified using a staged checkout and cached official dataset archive. Direct Desktop mounts, unaided container download and hosted CI remain unverified. See [observed results](../reports/phase6/results.md).
+Phase 6 adds MLflow run tracking and model registration, verified releases, explicit activation and rollback, JSON request logs, Prometheus metrics/alert rules, drift reports, Docker Compose and CI. It remains a **local development deployment**. Local Docker execution, model restart/rollback, MLflow and Prometheus are now verified using a staged checkout and cached official dataset archive. Hosted Linux CI now passes, including a fresh container dataset download. The direct Desktop mount and local Docker DNS issues remain specific to this Mac. See [observed results](../reports/phase6/results.md).
 
 ## Install and prepare a release
 
@@ -11,7 +11,7 @@ python -m pip install -e '.[dev,phase4,phase6]'
 python -m recsyslab.operations.releases prepare --run artifacts/phase2-1m
 ```
 
-The command prints a 64-character `release` identifier. Use that exact identifier for `RELEASE_ID` below. `requirements-phase6-lock.txt` records the tested macOS Python 3.9 environment, including neural training dependencies. `requirements-serving-lock.txt` is the smaller pinned dependency closure used in the Python 3.11 API image. The pinned serving dependencies installed successfully in the Linux ARM64 image. Hosted CI on Linux x86_64 remains a separate check.
+The command prints a 64-character `release` identifier. Use that exact identifier for `RELEASE_ID` below. `requirements-phase6-lock.txt` records the tested macOS Python 3.9 environment, including neural training dependencies. `requirements-serving-lock.txt` is the smaller pinned dependency closure used in the Python 3.11 API image. The pinned serving dependencies installed successfully in the Linux ARM64 image. The hosted Linux x86_64 test and Compose jobs also passed.
 
 ```bash
 export RELEASE_ID='PASTE_RELEASE_IDENTIFIER'
@@ -128,6 +128,6 @@ python scripts/verify_phase6_local.py
 
 The second command creates a unique PostgreSQL schema, runs real HTTP QA through the standalone frontend, verifies startup pinning/restart/rollback and metric authorization, then drops its own schema and stops its servers. Generated QA actions never enter the public application schema. The regular test suite covers differing model weights, gate failures, tampered bundles, exact/shifted/sparse drift, and a real SQLite-backed MLflow registry round trip.
 
-[CI](../.github/workflows/ci.yml) installs all model dependencies, runs PostgreSQL-backed tests and frontend checks, then runs a separate clean Compose bootstrap/build/HTTP smoke job with Prometheus rule validation. It exists as configuration; no hosted run has occurred. Local runtime checks have now passed with the documented staging/cache workarounds; require the hosted job to pass before claiming an unattended clean deployment. Browser visual QA remains outstanding from Phase 4.
+[CI](../.github/workflows/ci.yml) installs all model dependencies, runs PostgreSQL-backed tests and frontend checks, then runs a separate clean Compose bootstrap/build/HTTP smoke job with Prometheus rule validation. Both hosted jobs passed at commit `ef3807e`: 53 Python tests plus frontend checks, and a fresh Compose deployment with the actual dataset download. See [the successful run](https://github.com/sivanishwanthm/Movie-Recommendation-System/actions/runs/40820689668) and [recorded evidence](../reports/phase6/ci-verification.json). The first hosted run exposed an owner-only release pointer; selection now publishes it with mode 0644 so the non-root API can read it across UIDs. Browser visual QA remains outstanding from Phase 4.
 
 Implementation references: [MLflow client and aliases](https://www.mlflow.org/docs/latest/api_reference/python_api/mlflow.client.html), [Compose dependency health/completion conditions](https://docs.docker.com/compose/how-tos/startup-order/), and the installed Next.js 16.4.3 `output: standalone` documentation.

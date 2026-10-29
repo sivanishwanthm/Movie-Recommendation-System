@@ -1,6 +1,8 @@
 # RecSysLab
 
-A reproducible movie recommendation project. **Phases 1–6 are implemented:** official MovieLens ingestion, validation, descriptive EDA, time-aware splitting, popularity, item-based collaborative filtering, implicit ALS matrix factorization, PyTorch two-tower retrieval, FAISS indexing, LightGBM ranking, paired offline model comparison, FastAPI serving, PostgreSQL interaction storage, a Next.js app, randomized experiment infrastructure and statistical analysis. MLflow tracking, verified releases/rollback, monitoring, drift checks, Compose and CI are included. Local Docker runtime checks passed with a staged checkout and cached dataset; hosted CI remains pending; see [the architecture](docs/architecture.md).
+A reproducible movie recommendation project. **Phases 1–6 are implemented:** official MovieLens ingestion, validation, descriptive EDA, time-aware splitting, popularity, item-based collaborative filtering, implicit ALS matrix factorization, PyTorch two-tower retrieval, FAISS indexing, LightGBM ranking, paired offline model comparison, FastAPI serving, PostgreSQL interaction storage, a Next.js app, randomized experiment infrastructure and statistical analysis. MLflow tracking, verified releases/rollback, monitoring, drift checks, Compose and CI are included. Local Docker runtime checks and hosted GitHub CI passed, including a fresh dataset download and Compose deployment; see [the architecture](docs/architecture.md).
+
+[![RecSysLab verification](https://github.com/sivanishwanthm/Movie-Recommendation-System/actions/workflows/ci.yml/badge.svg)](https://github.com/sivanishwanthm/Movie-Recommendation-System/actions/workflows/ci.yml)
 
 ## Setup and reproduce
 
@@ -97,7 +99,7 @@ python -m recsyslab.operations.releases prepare --run artifacts/phase2-1m
 # Use the printed release ID to track and activate it; see the runbook below.
 ```
 
-Read [the Phase 6 runbook](docs/phase6.md) for release activation, restart/rollback, clean Compose bootstrap, monitoring and backups. [Verification evidence](reports/phase6/results.md) includes PostgreSQL tests, real MLflow registration and local standalone HTTP rollback checks. Docker startup, HTTP behavior, MLflow, monitoring and rollback now pass using a staged checkout and cached official archive. Hosted CI and unattended dataset download remain open; see [Docker verification](docs/docker-verification.md). No public deployment or live experiment was activated.
+Read [the Phase 6 runbook](docs/phase6.md) for release activation, restart/rollback, clean Compose bootstrap, monitoring and backups. [Verification evidence](reports/phase6/results.md) includes PostgreSQL tests, real MLflow registration and local standalone HTTP rollback checks. Docker startup, HTTP behavior, MLflow, monitoring and rollback now pass using a staged checkout and cached official archive. Hosted CI and its unattended dataset download now pass; see [Docker verification](docs/docker-verification.md). No public deployment or live experiment was activated.
 
 Local database recovery has also been verified; see [backup/restore commands and scope](docs/recovery.md).
 

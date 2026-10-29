@@ -1,6 +1,6 @@
 # Phase 6 verification
 
-Phase 6 operations are implemented and locally verified. **Updated Docker status:** local container startup, fresh training, HTTP smoke, tracking, monitoring and rollback now pass with a temporary staged checkout and cached official ZIP. Hosted CI, direct Desktop mounts and unaided container download remain open. Nothing was published and no live experiment was activated.
+Phase 6 operations are implemented and locally verified. **Updated Docker status:** local container startup, fresh training, HTTP smoke, tracking, monitoring and rollback now pass with a temporary staged checkout and cached official ZIP. Hosted CI subsequently passed with a fresh dataset download. Direct Desktop mounts and local Docker DNS remain open on this Mac. Nothing was published and no live experiment was activated.
 
 ## Observed checks
 
@@ -73,3 +73,9 @@ Docker Desktop 29.9.2 (Linux ARM64 engine) and Compose v5.6.1 successfully built
 A second model with shrinkage 12 was trained solely for rollback QA. Its validation NDCG was 0.2678018093 versus popularity 0.2604025450. The API stayed pinned before restart, then loaded the different model and returned to its original model after rollback/restart. This is operational QA, not evidence that the second model improves recommendations. The MLflow explicit-URI artifact-context handling was corrected and its context-restoration paths tested. Full regression: **53 passed**, 14 pre-existing warnings. Original profile database: **1 profile and 6 ratings preserved**.
 
 This run required a temporary checkout because mounting the original Desktop path stalled, and a checksum-matched cached official archive because the container could not resolve the dataset host. The unassisted download path and hosted CI have not passed. See [docker-verification.json](docker-verification.json), [docker-rollback.json](docker-rollback.json), [docker-mlflow.json](docker-mlflow.json), and [reproduction/stop commands](../../docs/docker-verification.md). Earlier “not run” notes above describe the original Phase 6 checkpoint; this follow-up supersedes them for the checks actually executed.
+
+## Follow-up: hosted GitHub CI passed
+
+[Run 40820689668](https://github.com/sivanishwanthm/Movie-Recommendation-System/actions/runs/40820689668) passed both jobs on commit `ef3807eced8a90578d1e0f38b38490624a12ac8d`. The tests job reported **53 passed, 15 warnings**, then passed frontend type checking and production build. The Compose job performed the official dataset download, fresh baseline training, image builds, PostgreSQL migration/catalog import, service readiness, MLflow registration, synthetic HTTP smoke and Prometheus rule validation, then removed its disposable stack.
+
+The first run failed because `current.json` was created with owner-only permissions. Selection now sets mode 0644 before atomic replacement, and reselecting an existing release repairs old pointer permissions. Tests assert both paths. These pointers contain model identifiers, not credentials; secrets and backup permissions remain unchanged. This closes the hosted clean-deployment check. Local Desktop mount/DNS limitations and browser visual QA remain separate outstanding items. See [ci-verification.json](ci-verification.json) for exact job links and tested revision. Earlier pending-CI statements in this historical report are superseded by this follow-up.

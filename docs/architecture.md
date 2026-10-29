@@ -1,6 +1,6 @@
 # Architecture and phased plan
 
-Phases 1–6 are implemented: offline models, local FastAPI/PostgreSQL serving, a Next.js app and opt-in randomized experimentation. Phase 6 adds tracking, verified release selection/rollback, monitoring, drift checks, Compose and CI. Local Docker runtime and rollback checks passed with staging/cache workarounds; hosted CI remains pending; live experiment enrollment is off by default. Browser visual QA is outstanding; database/API tests and the production frontend build pass.
+Phases 1–6 are implemented: offline models, local FastAPI/PostgreSQL serving, a Next.js app and opt-in randomized experimentation. Phase 6 adds tracking, verified release selection/rollback, monitoring, drift checks, Compose and CI. Local Docker rollback checks and hosted clean Compose deployment passed; live experiment enrollment is off by default. Browser visual QA is outstanding; database/API tests and the production frontend build pass.
 
 ```mermaid
 flowchart LR

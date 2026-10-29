@@ -107,6 +107,7 @@ def select_release(root, release=None, rollback=False):
             raise ValueError('no rollback target or release supplied')
         path = verify(root, target)
         if old.get('release') == target:
+            pointer.chmod(0o644)  # Repair pointers created before cross-UID serving support.
             return old
         value = {'release': target, 'previous': old.get('release'),
                  'model_version': LiveRecommender(path).version,
@@ -114,6 +115,9 @@ def select_release(root, release=None, rollback=False):
         # One atomic document contains both selection and rollback target.
         with tempfile.NamedTemporaryFile(mode='w', dir=root, delete=False) as handle:
             json.dump(value, handle, indent=2)
+            # The trainer and non-root API may have different UIDs on Linux.
+            # This document contains release identifiers, never credentials.
+            os.fchmod(handle.fileno(), 0o644)
             handle.flush()
             os.fsync(handle.fileno())
         os.replace(handle.name, pointer)

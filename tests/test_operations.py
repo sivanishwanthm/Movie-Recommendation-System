@@ -35,7 +35,12 @@ def test_atomic_release_and_rollback(tmp_path):
     b = prepare(benchmark(tmp_path, 2), root)['release']
     assert a != b
     select_release(root, a)
+    assert (root / 'current.json').stat().st_mode & 0o777 == 0o644
+    (root / 'current.json').chmod(0o600)
+    select_release(root, a)
+    assert (root / 'current.json').stat().st_mode & 0o777 == 0o644
     select_release(root, b)
+    assert (root / 'current.json').stat().st_mode & 0o777 == 0o644
     assert selected_path(root).name == b
     assert select_release(root, rollback=True)['release'] == a
     assert selected_path(root).name == a

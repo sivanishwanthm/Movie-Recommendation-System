@@ -1,0 +1,25 @@
+{
+  "run_id": 41233023754,
+  "url": "https://github.com/sivanishwanthm/Movie-Recommendation-System/actions/runs/41233023754",
+  "verified_commit": "55a45b99ff499611f87bf0b227a6ac24d1f46628",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "compose",
+      "conclusion": "success",
+      "html_url": "https://github.com/sivanishwanthm/Movie-Recommendation-System/actions/runs/41233023754/job/124630952072"
+    },
+    {
+      "name": "tests",
+      "conclusion": "success",
+      "html_url": "https://github.com/sivanishwanthm/Movie-Recommendation-System/actions/runs/41233023754/job/124630952333"
+    }
+  ],
+  "log_summaries": [
+    "2026-10-31T19:12:32.4103708Z 53 passed, 15 warnings in 12.55s",
+    "2026-10-31T19:12:32.4103710Z 53 passed, 15 warnings in 12.55s",
+    "2026-10-31T19:14:26.1753565Z   6 passed (17.3s)",
+    "2026-10-31T19:14:26.1753571Z   6 passed (17.3s)"
+  ],
+  "scope": "Full Python suite, frontend checks, fresh Compose deployment and six desktop/mobile Chromium browser tests; screenshots uploaded as browser-qa."
+}

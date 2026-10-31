@@ -10,4 +10,4 @@ The first run exposed test-harness issues, not confirmed application defects: a 
 
 This establishes the tested Chromium flows and sampled layouts only. Physical mobile devices, Safari/Firefox, comprehensive accessibility, browser-restart/account recovery, load testing and public pilot hosting remain separate checks. Reload persistence was tested; it must not be described as browser-restart verification. Synthetic QA activity is not user engagement evidence.
 
-Hosted CI verification for this change will be recorded after the workflow completes.
+Hosted verification also passed: [run 41233023754](https://github.com/sivanishwanthm/Movie-Recommendation-System/actions/runs/41233023754) on commit `55a45b99ff499611f87bf0b227a6ac24d1f46628`. It ran **53 Python tests** (15 warnings), frontend checks, the fresh Compose deployment and **6 browser tests** (17.3 seconds). The `browser-qa` artifact contains screenshots/results with seven-day retention. See [ci-verification.json](ci-verification.json).

@@ -73,7 +73,7 @@ cd ..
 python scripts/run_phase4.py
 ```
 
-Open **http://localhost:3000**. The API docs are at http://127.0.0.1:8000/docs. See [the complete Phase 4 run guide](docs/phase4.md), including how to reuse the local Node/PostgreSQL tools already installed in this workspace, and [verification results](reports/phase4/results.md). Browser visual QA remains unverified because Computer Use permission was unavailable. The API, database integration and production frontend build were verified.
+Open **http://localhost:3000**. The API docs are at http://127.0.0.1:8000/docs. See [the complete Phase 4 run guide](docs/phase4.md), including how to reuse the local Node/PostgreSQL tools already installed in this workspace, and [verification results](reports/phase4/results.md). Desktop Chromium and mobile-emulation browser checks now pass locally and in CI; selected screenshots were also inspected. See [browser QA scope](docs/browser-qa.md). The API, database integration and production frontend build were verified.
 
 ## Phase 5: experiments and analysis
 

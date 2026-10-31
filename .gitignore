@@ -17,3 +17,6 @@ frontend/tsconfig.tsbuildinfo
 
 .secrets/
 mlruns/
+
+frontend/test-results/
+frontend/playwright-report/

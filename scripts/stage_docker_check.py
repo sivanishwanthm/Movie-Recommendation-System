@@ -20,7 +20,8 @@ def main():
         raise SystemExit('Run scripts/init_compose.py first.')
     stage = Path(tempfile.mkdtemp(prefix='recsyslab-docker-'))
     ignore = shutil.ignore_patterns('.venv','.tools','data','artifacts','node_modules','.next','.git',
-                                   '.secrets','.env*','mlruns','__pycache__','.pytest_cache','*.log')
+                                   '.secrets','.env*','mlruns','__pycache__','.pytest_cache','*.log',
+                                   'test-results','playwright-report')
     shutil.copytree(root, stage, dirs_exist_ok=True, ignore=ignore)
     (stage / '.secrets').mkdir(mode=0o700)
     shutil.copyfile(root / '.secrets/metrics_token', stage / '.secrets/metrics_token')

@@ -103,6 +103,8 @@ Read [the Phase 6 runbook](docs/phase6.md) for release activation, restart/rollb
 
 Local database recovery has also been verified; see [backup/restore commands and scope](docs/recovery.md).
 
+Browser QA now covers desktop Chromium and mobile emulation: [run commands](docs/browser-qa.md) and [observed results](reports/browser-qa/results.md).
+
 ## MovieLens 32M
 
 ```bash

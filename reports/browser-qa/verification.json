@@ -1,0 +1,31 @@
+{
+  "verified_on": "2026-10-31",
+  "environment": "isolated Docker stack at 127.0.0.1:3001",
+  "data_kind": "synthetic QA only",
+  "playwright": "1.64.1",
+  "stats": {
+    "startTime": "2026-10-31T19:09:12.932Z",
+    "duration": 12965.046999999999,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "projects": [
+    "desktop-chromium",
+    "mobile-chromium"
+  ],
+  "typecheck": "passed",
+  "reviewed_screenshots": [
+    "mobile home",
+    "desktop models",
+    "mobile activity",
+    "mobile synthetic experiment results"
+  ],
+  "scope": "Chromium desktop and mobile emulation; no physical-device or cross-browser claim",
+  "source_sha256": {
+    "frontend/e2e/app.spec.ts": "cc005ffa4cbf515672793b8bdeaf9fd08a74e42a64bb691870868365c291b977",
+    "frontend/playwright.config.ts": "814408b3ac5c87eaf0b04ad629bbc207506c7c5101efa805572b2e2b75d9d483",
+    ".github/workflows/ci.yml": "d011eb8c38af99444d8dc98c7cdb0450aa7345dbfd6a9fb5aeb833ee90d3218e"
+  }
+}

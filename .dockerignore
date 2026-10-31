@@ -17,3 +17,6 @@ frontend/.next
 
 **/.env*
 **/.secrets
+
+frontend/test-results
+frontend/playwright-report
